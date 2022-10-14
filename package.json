@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemom server.js"
+    "start": "nodemon server.js",
+    "express": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/JulisNovais/node-http6/issues"
   },
-  "homepage": "https://github.com/JulisNovais/node-http6#readme"
+  "homepage": "https://github.com/JulisNovais/node-http6#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
