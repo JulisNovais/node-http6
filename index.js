@@ -55,11 +55,28 @@ app.get('/books/:id', (req, res) => {
 
 app.delete('/books/:id', (req, res) => {
     let id = req.params.id
-    let index = books.findIndex(obj => obj._id === id)
+    let index = books.findIndex(obj => obj._id === parseInt(id))
+
+    console.log('index', index)
 
     books.splice(index, 1)
 
-    res.send(books)
+    res.status(200).json(books)
+})
+
+app.patch('/books/:id', (req, res) => {
+    let id = parseInt(req.params.id)
+    
+    let book = books.find(obj => obj._id === id)
+    console.log('book:', book)
+
+    let body = req.body
+    console.log('body:', body)
+
+    book.title = body.title
+    book.autor = body.autor
+
+    res.send(book)
 })
 
 app.listen(port, hostname, () => console.log(`http://${hostname}:${port}`))
