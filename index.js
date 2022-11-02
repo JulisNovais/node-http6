@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 
 const app = express()
 
@@ -11,6 +12,8 @@ const books = [
     { _id: 2, title: 'O mundo de sofia', autor: 'Jostein Gaarden', favorito: true },
     { _id: 3, title: 'A casa', autor: 'Raquel de Queiroz', favorito: false }
 ]
+
+app.use(cors());
 
 app.use(
     express.urlencoded({
@@ -79,4 +82,4 @@ app.patch('/books/:id', (req, res) => {
     res.send(book)
 })
 
-app.listen(port, hostname, () => console.log(`http://${hostname}:${port}`))
+app.listen(port, () => console.log(`http://${hostname}:${port}`))
