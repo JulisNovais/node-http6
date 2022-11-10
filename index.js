@@ -1,7 +1,13 @@
 const express = require('express')
 const cors = require('cors')
 
+const db = require('./db/dbConfig')
+
 const app = express()
+
+db.once('open', ()=> {
+    console.log('Conexão realizada!')
+})
 
 const hostname = 'localhost'
 
